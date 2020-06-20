@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Lyricly",
+  "version": "1.0",
+
+  "description": "Get lyrics for current YouTube video",
+
+  "permissions": ["webNavigation", "tabs", "activeTab", "<all_urls>"],
+  "background": {
+    "scripts": ["bundle.js", "./package/crawler.js"]
+  },
+  
+  "browser_action": {
+    "default_icon": "icons/music-32.png",
+    "default_title": "Lyricly",
+    "default_popup": "popup/popup.html"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
